@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+const CalendarView = lazy(() => import('./components/CalendarView'));
+const EventDetails = lazy(() => import('./components/EventDetails'));
+const EventForm = lazy(() => import('./components/EventForm'));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/" element={<CalendarView />} />
+        <Route path="/event/:id" element={<EventDetails />} />
+        <Route path="/add-event" element={<EventForm />} />
+        <Route path="/edit-event/:id" element={<EventForm />} />
+      </Routes>
+    </Suspense>
   );
 }
 
