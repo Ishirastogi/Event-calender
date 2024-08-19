@@ -1,0 +1,14 @@
+.modalContainer {
+    padding: 2rem;
+}
+
+.modalBackdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .modalContainer {
+        padding: 1rem;
+    }
+}

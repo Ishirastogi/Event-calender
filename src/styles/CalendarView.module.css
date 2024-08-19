@@ -1,0 +1,10 @@
+.calendarContainer {
+    padding: 1rem;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .calendarContainer {
+        padding: 0.5rem;
+    }
+}

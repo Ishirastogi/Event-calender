@@ -1,0 +1,18 @@
+.formContainer {
+    padding: 2rem;
+}
+
+.inputField {
+    padding: 0.5rem;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .formContainer {
+        padding: 1rem;
+    }
+
+    .inputField {
+        padding: 0.25rem;
+    }
+}
