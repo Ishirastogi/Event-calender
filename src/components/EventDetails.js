@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { EventContext } from "../context/EventContext";
-
+import styles from '../styles/EventDetails.module.css';
 const EventDetails = () => {
   const { events, setEvents } = useContext(EventContext);
   const { id } = useParams();
@@ -17,7 +17,7 @@ const EventDetails = () => {
   if (!event) return <div className="p-5 text-red-500">Event not found</div>;
 
   return (
-    <div className="p-5 space-y-4">
+    <div className={`${styles.detailsContainer} bg-white shadow-lg`}>
       <h2 className="text-2xl font-bold">{event.title}</h2>
       <p>
         <strong>Date:</strong> {event.date}

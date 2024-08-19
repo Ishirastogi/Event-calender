@@ -1,0 +1,10 @@
+.detailsContainer {
+    padding: 2rem;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .detailsContainer {
+        padding: 1rem;
+    }
+}

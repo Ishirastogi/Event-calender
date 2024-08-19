@@ -1,11 +1,11 @@
 import React from "react";
-
+import styles from "../styles/Modal.module.css";
 const Modal = ({ isOpen, onClose, events, onEventClick }) => {
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white rounded-lg shadow-lg p-5 w-96">
+      <div className={`${styles.modalContainer} bg-white shadow-xl`}>
         <h3 className="text-xl font-semibold mb-4">Events on this day</h3>
         <ul>
           {events.map((event) => (

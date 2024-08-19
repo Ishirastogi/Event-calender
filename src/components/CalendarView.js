@@ -5,7 +5,7 @@ import "react-calendar/dist/Calendar.css";
 import { EventContext } from "../context/EventContext";
 import EventFilter from "./EventFilter";
 import Modal from "./Modal"; // Import the Modal component
-
+import styles from "../styles/CalendarView.module.css";
 const CalendarView = () => {
   const { events } = useContext(EventContext);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -71,7 +71,7 @@ const CalendarView = () => {
   const categories = [...new Set(events.map((event) => event.category))];
 
   return (
-    <div className="p-5">
+    <div className={`${styles.calendarContainer} bg-gray-100`}>
       {/* Event filter to filter events by category */}
       <EventFilter
         categories={categories}

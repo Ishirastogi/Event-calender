@@ -1,0 +1,11 @@
+/* Additional styles */
+.link {
+    font-weight: bold;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .link {
+        font-size: 1rem;
+    }
+}

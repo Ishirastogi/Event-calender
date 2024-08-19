@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { EventContext } from "../context/EventContext";
+import styles from "../styles/EventForm.module.css";
 
 const EventForm = () => {
   const { events, setEvents } = useContext(EventContext);
@@ -53,46 +54,96 @@ const EventForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-5">
-      <input
-        type="text"
-        className="border p-2 rounded"
-        placeholder="Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <input
-        type="date"
-        className="border p-2 rounded"
-        value={date}
-        onChange={(e) => setDate(e.target.value)}
-      />
-      <input
-        type="time"
-        className="border p-2 rounded"
-        value={time}
-        onChange={(e) => setTime(e.target.value)}
-      />
-      <input
-        type="text"
-        className="border p-2 rounded"
-        placeholder="Category"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      />
-      <textarea
-        className="border p-2 rounded"
-        placeholder="Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <button
-        type="submit"
-        className="bg-blue-500 text-white py-2 rounded hover:bg-blue-700"
-      >
+    <>
+      <h2 className="text-2xl font-bold mb-4 p-5">
         {id ? "Update Event" : "Add Event"}
-      </button>
-    </form>
+      </h2>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-5">
+        <div>
+          <label
+            className="block text-sm font-medium text-gray-700 mb-2"
+            htmlFor="title"
+          >
+            Title
+          </label>
+          <input
+            type="text"
+            id="title"
+            className={`${styles.inputField} border border-gray-300 rounded p-2 w-full`}
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div>
+          <label
+            className="block text-sm font-medium text-gray-700 mb-2"
+            htmlFor="date"
+          >
+            Date
+          </label>
+          <input
+            type="date"
+            id="date"
+            className={`${styles.inputField} border border-gray-300 rounded p-2 w-full`}
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </div>
+        <div>
+          <label
+            className="block text-sm font-medium text-gray-700 mb-2"
+            htmlFor="time"
+          >
+            Time
+          </label>
+          <input
+            type="time"
+            id="time"
+            className={`${styles.inputField} border border-gray-300 rounded p-2 w-full`}
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+          />
+        </div>
+        <div>
+          <label
+            className="block text-sm font-medium text-gray-700 mb-2"
+            htmlFor="category"
+          >
+            Category
+          </label>
+          <input
+            type="text"
+            id="category"
+            className={`${styles.inputField} border border-gray-300 rounded p-2 w-full`}
+            placeholder="Category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          />
+        </div>
+        <div>
+          <label
+            className="block text-sm font-medium text-gray-700 mb-2"
+            htmlFor="description"
+          >
+            Description
+          </label>
+          <textarea
+            id="description"
+            className={`${styles.inputField} border border-gray-300 rounded p-2 w-full`}
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <button
+          type="submit"
+          className="bg-blue-500 text-white py-2 rounded hover:bg-blue-700"
+        >
+          {id ? "Update Event" : "Add Event"}
+        </button>
+      </form>
+    </>
   );
 };
 
